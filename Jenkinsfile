@@ -10,12 +10,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-               sh 'cd ./client && npm install'
+               sh 'npm install'
             }
         }
         stage('Deploy'){
             steps{
-                sh 'pm2 start " cd ./client && npm start"'
+                sh 'pm2 start "npm run start"'
                 sh 'pm2 save'
             }
         }
