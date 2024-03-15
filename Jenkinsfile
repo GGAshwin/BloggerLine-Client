@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout Code') { // Defines a stage named "Checkout Code"
       steps {
-        git branch: 'master', // Fetches code from the specified branch
+        git branch: 'main', // Fetches code from the specified branch
           url: 'https://github.com/GGAshwin/BloggerLine-Client.git' // URL of the Git repository
       }
     }
