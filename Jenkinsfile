@@ -11,7 +11,13 @@ pipeline {
 
     stage('Install Dependencies') { // Defines another stage named "Install Dependencies"
       steps {
-        bat 'echo done' // Executes a simple batch script to simulate an installation step
+        bat 'npm install' // Executes a simple batch script to simulate an installation step
+      }
+    }
+
+    stage('Run React') { // Defines another stage named "Install Dependencies"
+      steps {
+        bat 'npm run start' // Executes a simple batch script to simulate an installation step
       }
     }
   }
