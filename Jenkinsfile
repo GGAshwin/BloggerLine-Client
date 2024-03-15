@@ -23,7 +23,7 @@ pipeline {
 
     stage('Deploy') { // Defines another stage named "Install Dependencies"
       steps {
-        sh "sudo rm -rf /var/www/bloggerline"
+        sh "sudo rm -rf /var/www/bloggerline/"
         sh "sudo cp -r ${WORKSPACE}/build/ /var/www/bloggerline/"
       }
     }
