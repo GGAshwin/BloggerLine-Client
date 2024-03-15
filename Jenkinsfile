@@ -15,9 +15,9 @@ pipeline {
       }
     }
 
-    stage('Run React') { // Defines another stage named "Install Dependencies"
+    stage('Build React') { // Defines another stage named "Install Dependencies"
       steps {
-        sh 'npm run start' // Executes a simple batch script to simulate an installation step
+        sh 'npm run build' // Executes a simple batch script to simulate an installation step
       }
     }
   }
