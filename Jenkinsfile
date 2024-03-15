@@ -20,5 +20,12 @@ pipeline {
         sh 'npm run build' // Executes a simple batch script to simulate an installation step
       }
     }
+
+    stage('Deploy') { // Defines another stage named "Install Dependencies"
+      steps {
+        sh "sudo rm -rf /var/www/bloggerline"
+        sh "sudo cp -r ${WORKSPACE}/build/ /var/www/bloggerline/"
+      }
+    }
   }
 }
