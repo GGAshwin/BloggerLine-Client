@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-               sh 'echo done'
+               bat 'echo done'
             }
         }
     }
