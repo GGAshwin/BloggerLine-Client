@@ -21,6 +21,12 @@ pipeline {
       }
     }
 
+    stage('Sonar Scan'){
+      steps{
+        sh 'sonar-scanner -Dsonar.projectKey=bloggerline-client -Dsonar.sources=. -Dsonar.host.url=http://54.145.74.209:9000 -Dsonar.token=sqp_e1a1e0dd13d919fb938c78133689c22dbceda858'
+      }
+    }
+
     stage('Deploy') { // Defines another stage named "Install Dependencies"
       steps {
         sh "sudo rm -rf /var/www/bloggerline/*"
