@@ -27,12 +27,7 @@ pipeline {
                     sh 'chmod +x /var/lib/jenkins/workspace/"React Project"@tmp/durable-$(echo $BUILD_ID)/script.sh.copy'
 
                     // Option 1: Use environment variable for path (if set)
-                    if (env.containsKey('SONAR_SCANNER_PATH')) {
-                        sh "export PATH=$PATH:${env.SONAR_SCANNER_PATH}"
-                    } else {
-                        // Option 2: Set path directly in script (alternative)
-                        sh "export PATH=/home/sonarqube/sonar-scanner-5.0.1.3006-linux/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
-                    }
+    sh "export PATH=$PATH:${env.SONAR_SCANNER_PATH}"
         sh 'sonar-scanner \
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
