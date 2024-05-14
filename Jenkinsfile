@@ -26,7 +26,7 @@ stage('SonarQube Analysis') {
                 script{
                     def scannerHome = tool 'sonar';
                     withSonarQubeEnv('Sonar') {
-                      sh "/home/sonarqube/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner"
+                      sh "${scannerHome}/bin/sonar-scanner"
                     }
                     
                 }
