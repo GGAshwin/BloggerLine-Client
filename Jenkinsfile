@@ -24,10 +24,7 @@ pipeline {
     stage('Sonar Scan'){
       steps{
         // sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
-                    sh 'sudo chmod +x ${SONAR_SCANNER_PATH}'
-
-                    // Option 1: Use environment variable for path (if set)
-    // sh "export PATH=$PATH:${SONAR_SCANNER_PATH}"
+                    // sh 'sudo chmod +x ${SONAR_SCANNER_PATH}'
         sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner && export PATH=$PATH:${SONAR_SCANNER_PATH && sonar-scanner \
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
