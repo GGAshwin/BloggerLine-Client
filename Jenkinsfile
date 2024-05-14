@@ -21,17 +21,17 @@ pipeline {
       }
     }
 
-    stage('Sonar Scan'){
-      steps{
-        // sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
-                    // sh 'sudo chmod +x ${SONAR_SCANNER_PATH}'
-        sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner && export PATH=$PATH:${SONAR_SCANNER_PATH} && sonar-scanner \
-  -Dsonar.projectKey=bloggerline-client \
-  -Dsonar.sources=. \
-  -Dsonar.host.url=http://54.145.74.209:9000 \
-  -Dsonar.token=sqp_00355fb3902c3c14b22f3b650186b83553f5eb36'
+stage('SonarQube Analysis') {
+            steps{
+                script{
+                    def scannerHome = tool 'sonar';
+                    withSonarQubeEnv('Sonar') {
+                      sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                    
+                }
+            }
         }
-    }
 
     stage('Deploy') { // Defines another stage named "Install Dependencies"
       steps {
