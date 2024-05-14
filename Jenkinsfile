@@ -23,8 +23,8 @@ pipeline {
 
     stage('Sonar Scan'){
       steps{
-        sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
-        sh 'sonar-scanner \
+        // sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
+        sh 'export PATH=${SONAR_SCANNER_PATH}:$PATH; sonar-scanner \
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://54.145.74.209:9000 \
