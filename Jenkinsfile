@@ -25,7 +25,7 @@ pipeline {
       steps{
         // sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
                     // sh 'sudo chmod +x ${SONAR_SCANNER_PATH}'
-        sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner && export PATH=$PATH:${SONAR_SCANNER_PATH && sonar-scanner \
+        sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner && export PATH=$PATH:${SONAR_SCANNER_PATH} && sonar-scanner \
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://54.145.74.209:9000 \
