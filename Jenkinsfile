@@ -24,7 +24,7 @@ pipeline {
     stage('Sonar Scan'){
       steps{
         // sh 'export PATH=$PATH:/home/sonarqube/"sonar-scanner-5.0.1.3006-linux"/bin'
-                    sh 'chmod +x /var/lib/jenkins/workspace/React\ Project@tmp/durable-$(echo $BUILD_ID)/script.sh.copy'
+                    sh 'chmod +x /var/lib/jenkins/workspace/"React Project"@tmp/durable-$(echo $BUILD_ID)/script.sh.copy'
 
                     // Option 1: Use environment variable for path (if set)
                     if (env.containsKey('SONAR_SCANNER_PATH')) {
