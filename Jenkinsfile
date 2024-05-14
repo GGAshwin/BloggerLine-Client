@@ -28,7 +28,7 @@ pipeline {
 
                     // Option 1: Use environment variable for path (if set)
     // sh "export PATH=$PATH:${SONAR_SCANNER_PATH}"
-        sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner; export PATH=$PATH:${SONAR_SCANNER_PATH};sonar-scanner \
+        sh 'sudo chmod 777 ${SONAR_SCANNER_PATH}/sonar-scanner && export PATH=$PATH:${SONAR_SCANNER_PATH && sonar-scanner \
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://54.145.74.209:9000 \
