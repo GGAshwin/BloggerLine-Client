@@ -21,17 +21,17 @@ pipeline {
       }
     }
 
-stage('SonarQube Analysis') {
-            steps{
-                script{
-                    def scannerHome = tool 'sonar';
-                    withSonarQubeEnv('Sonar') {
-                      sh "${scannerHome}/bin/sonar-scanner"
-                    }
+// stage('SonarQube Analysis') {
+//             steps{
+//                 script{
+//                     def scannerHome = tool 'sonar';
+//                     withSonarQubeEnv('Sonar') {
+//                       sh "${scannerHome}/bin/sonar-scanner"
+//                     }
                     
-                }
-            }
-        }
+//                 }
+//             }
+//         }
 
     stage('Deploy') { // Defines another stage named "Install Dependencies"
       steps {
