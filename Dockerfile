@@ -1,16 +1,17 @@
-FROM node:13.12.0-alpine
+FROM node:18-alpine
+# Use a recent LTS Node.js version
 
-# set working directory
 WORKDIR /app
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
+# Install dependencies
+COPY package*.json ./
 RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
 
-# add app
-COPY . ./
+# Copy project code
+COPY . .
 
-# start app
-CMD ["npm", "start"]
+# Expose port 3000
+EXPOSE 3000
+
+# Run npm start
+CMD [ "npm", "start" ]
