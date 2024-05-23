@@ -32,9 +32,9 @@ environment {
       steps {
         script {
           sh '''
-            curl --create-dirs -sSLo ${env.HOME}/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
-            unzip -o ${env.HOME}/.sonar/sonar-scanner.zip -d ${env.HOME}/.sonar/
-            chmod +x ${SONAR_SCANNER_HOME}/bin/sonar-scanner
+            curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
+            unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+            chmod +x $SONAR_SCANNER_HOME/bin/sonar-scanner
           '''
         }
       }
