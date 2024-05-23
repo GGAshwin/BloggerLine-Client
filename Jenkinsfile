@@ -54,7 +54,7 @@ environment {
   -Dsonar.projectKey=bloggerline-client \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://54.145.74.209:9000 \
-  -Dsonar.token=sqb_eb6d158a46f7810416e779bccfefb5ce111bd349
+  -Dsonar.token=sqp_094ebd381a6ffa215c21a62966d94c4db3884d7c
           '''
         }
       }
