@@ -1,6 +1,13 @@
 pipeline {
   agent any // This defines the execution environment (any in this case)
 
+environment {
+    SONAR_SCANNER_VERSION = '5.0.1.3006'
+    SONAR_SCANNER_HOME = "$HOME/.sonar/sonar-scanner-${SONAR_SCANNER_VERSION}-linux"
+    PATH = "${SONAR_SCANNER_HOME}/bin:$PATH"
+    SONAR_SCANNER_OPTS = "-server"
+  }
+
   stages {
     stage('Checkout Code') { // Defines a stage named "Checkout Code"
       steps {
@@ -21,17 +28,19 @@ pipeline {
       }
     }
 
-// stage('SonarQube Analysis') {
-//             steps{
-//                 script{
-//                     def scannerHome = tool 'sonar';
-//                     withSonarQubeEnv('Sonar') {
-//                       sh "${scannerHome}/bin/sonar-scanner"
-//                     }
-                    
-//                 }
-//             }
-//         }
+    stage('SonarQube Analysis') {
+      steps {
+        script {
+          sh '''
+            sonar-scanner \
+              -Dsonar.organization=ggashwin \
+              -Dsonar.projectKey=GGAshwin_BloggerLine-Client \
+              -Dsonar.sources=. \
+              -Dsonar.host.url=https://sonarcloud.io
+          '''
+        }
+      }
+    }
 
     stage('Deploy') { // Defines another stage named "Install Dependencies"
       steps {
