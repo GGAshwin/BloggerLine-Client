@@ -28,6 +28,24 @@ environment {
       }
     }
 
+    stage('Setup SonarQube Scanner') {
+      steps {
+        script {
+          sh '''
+            curl --create-dirs -sSLo ${env.HOME}/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
+            unzip -o ${env.HOME}/.sonar/sonar-scanner.zip -d ${env.HOME}/.sonar/
+            chmod +x ${SONAR_SCANNER_HOME}/bin/sonar-scanner
+          '''
+        }
+      }
+    }
+
+    stage('Verify SonarQube Scanner') {
+      steps {
+        sh 'sonar-scanner --version'
+      }
+    }
+
     stage('SonarQube Analysis') {
       steps {
         script {
