@@ -258,14 +258,10 @@ export default function SinglePost() {
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                     />
-                    <div
-                      style={{
-                        "text-align": "left",
-                        "margin-left": "250px",
-                        "margin-top":"5px"
-                      }}
-                    >
-                      <button type="submit" id="submitBtn">Post Comment</button>
+                    <div id="btnContainer">
+                      <button type="submit" id="submitBtn">
+                        Post Comment
+                      </button>
                     </div>
                   </div>
                 </form>
