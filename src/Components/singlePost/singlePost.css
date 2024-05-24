@@ -215,10 +215,11 @@
 #submitBtn{
   padding: 7px 24px;
   border-radius: 5px;
-  background-color: royalblue;
+  background-color: #007bff;
   border: none;
   outline: none;
   font-weight: 500;
+  color: white;
 }  
 
 #submitBtn:hover{
