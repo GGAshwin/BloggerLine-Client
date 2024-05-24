@@ -115,7 +115,7 @@
 .feedback {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   color: white;
 }
 
@@ -163,10 +163,16 @@
 .commentSection {
   margin-top: 10px;
   text-align: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .comment {
   margin-bottom: 10px;
+  width: 50%;
+  text-align: left;
 }
 
 .commentAuthor {
@@ -188,8 +194,10 @@
 }
 
 .commentInput {
-  width: 40%; 
+  width: 50%; 
   height: 150px; 
+  border-radius: 7px;
+  padding: 5px;
 }
 
 .submit-button-container {
@@ -204,7 +212,15 @@
   width: 100px; 
 }
 
-  
-  
-  
-  
+#submitBtn{
+  padding: 7px 24px;
+  border-radius: 5px;
+  background-color: royalblue;
+  border: none;
+  outline: none;
+  font-weight: 500;
+}  
+
+#submitBtn:hover{
+  cursor: pointer;
+}

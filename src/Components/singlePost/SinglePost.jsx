@@ -246,22 +246,6 @@ export default function SinglePost() {
         </div>
 
         <div class="feedback-section">
-          <div class="comments-section">
-            <h3>Comments</h3>
-            {post.comments && (
-              <div class="commentSection">
-                {post.comments.map((comment) => (
-                  <div key={comment._id} className="comment">
-                    <p>{comment.content}</p>
-                    <p className="commentAuthor">- {comment.author}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div class="feedback-section">
           <div class="post-comment-section">
             {user && (
               <>
@@ -274,10 +258,34 @@ export default function SinglePost() {
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                     />
+                    <div
+                      style={{
+                        "text-align": "left",
+                        "margin-left": "250px",
+                        "margin-top":"5px"
+                      }}
+                    >
+                      <button type="submit" id="submitBtn">Post Comment</button>
+                    </div>
                   </div>
-                  <button type="submit">Post Comment</button>
                 </form>
               </>
+            )}
+          </div>
+        </div>
+
+        <div class="feedback-section">
+          <div class="comments-section">
+            <h3>Comments</h3>
+            {post.comments && (
+              <div class="commentSection">
+                {post.comments.map((comment) => (
+                  <div key={comment._id} className="comment">
+                    <p>{comment.content}</p>
+                    <p className="commentAuthor">- {comment.author}</p>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>
