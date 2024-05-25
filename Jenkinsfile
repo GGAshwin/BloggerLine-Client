@@ -25,8 +25,11 @@ environment {
     stage('Build DockerFile'){
         steps {
             sh '''
+            withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+            sh "docker login -u $USERNAME -p $PASSWORD"
             sudo docker build -t ggashwin/bloggerline-client:latest .
             sudo docker push ggashwin/bloggerline-client:latest
+            }
             '''
         }
     }
