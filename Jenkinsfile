@@ -22,6 +22,15 @@ environment {
       }
     }
 
+    stage('Build DockerFile'){
+      steps{
+        sh '''
+        docker build -t ggashwin/bloggerline-client:latest .
+        docker push ggashwin/bloggerline-client:latest
+        '''
+      }
+    }
+
     stage('Build React') { // Defines another stage named "Install Dependencies"
       steps {
         sh 'npm run build' // Executes a simple batch script to simulate an installation step
