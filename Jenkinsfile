@@ -23,12 +23,12 @@ environment {
     }
 
     stage('Build DockerFile'){
-      steps{
-        sh '''
-        sudo docker build -t ggashwin/bloggerline-client:latest .
-        docker push ggashwin/bloggerline-client:latest
-        '''
-      }
+        steps {
+            sh '''
+            sudo docker build -t ggashwin/bloggerline-client:latest .
+            sudo docker push ggashwin/bloggerline-client:latest
+            '''
+        }
     }
 
     stage('Build React') { // Defines another stage named "Install Dependencies"
