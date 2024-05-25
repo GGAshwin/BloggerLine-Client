@@ -22,7 +22,6 @@ environment {
       }
     }
 
-    stage('Build DockerFile'){
     stage('Build and Push Docker Image') {
         steps {
             script {
@@ -33,7 +32,6 @@ environment {
                 }
             }
         }
-    }
     }
 
     stage('Build React') { // Defines another stage named "Install Dependencies"
