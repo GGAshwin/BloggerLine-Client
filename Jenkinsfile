@@ -25,7 +25,7 @@ environment {
     stage('Build DockerFile'){
       steps{
         sh '''
-        docker build -t ggashwin/bloggerline-client:latest .
+        sudo docker build -t ggashwin/bloggerline-client:latest .
         docker push ggashwin/bloggerline-client:latest
         '''
       }
