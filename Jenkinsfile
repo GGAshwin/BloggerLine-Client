@@ -23,15 +23,17 @@ environment {
     }
 
     stage('Build DockerFile'){
+    stage('Build and Push Docker Image') {
         steps {
-            sh '''
-            withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh "docker login -u $USERNAME -p $PASSWORD"
-            sudo docker build -t ggashwin/bloggerline-client:latest .
-            sudo docker push ggashwin/bloggerline-client:latest
+            script {
+                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh '''docker login -u $USERNAME -p $PASSWORD
+                    docker build -t ggashwin/bloggerline-client:latest .
+                    docker push ggashwin/bloggerline-client:latest'''
+                }
             }
-            '''
         }
+    }
     }
 
     stage('Build React') { // Defines another stage named "Install Dependencies"
