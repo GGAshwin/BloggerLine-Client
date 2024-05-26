@@ -19,16 +19,20 @@ environment {
     stage('Install Dependencies') { // Defines another stage named "Install Dependencies"
       steps {
         sh 'npm install' // Executes a simple batch script to simulate an installation step
+      }
+    }
+
+    stage("Build Docker Image"){
+      steps{
         sh 'docker build -t ggashwin/bloggerline-client:latest .'
       }
     }
 
-    stage('Build and Push Docker Image') {
+    stage('Push Docker Image') {
         steps {
             script {
                 withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''docker login -u $USERNAME -p $PASSWORD
-                    docker build -t ggashwin/bloggerline-client:latest .
                     docker push ggashwin/bloggerline-client:latest'''
                 }
             }
