@@ -19,6 +19,7 @@ environment {
     stage('Install Dependencies') { // Defines another stage named "Install Dependencies"
       steps {
         sh 'npm install' // Executes a simple batch script to simulate an installation step
+        sh 'docker build -t ggashwin/bloggerline-client:latest .'
       }
     }
 
